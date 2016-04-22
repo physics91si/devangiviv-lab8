@@ -14,27 +14,31 @@ import numpy as np
 import particle
 
 # TODO: Implement this function
-def init_molecule():
+def init_molecule(pos1, pos2, m1, m2, spring_const, equil_length):
     """Create Particles p1 and p2 inside boundaries and return a molecule
     connecting them"""
-
-    pass
-
-
+    return Molecule(pos1, pos2, m1, m2, spring_const, equil_length)
+    #pos1 = tuple(np.random.rand(2,1))
+    #pos2 = tuple(np.random.rand(2,1))
+    
 # TODO: Implement this function
 def time_step(dt, mol):
     """Sets new positions and velocities of the particles attached to mol"""
+    i = 0
+    t = 0
+    while True:
+        t += dt/2
+        
     
-    pass
 
 
-#############################################
-# The rest of the file is already implemented
-#############################################
+###############################################
+# The rest of the file is already implemented #
+###############################################
 
 def run_dynamics(n, dt, xlim=(0, 1), ylim=(0, 1)):
     """Calculate each successive time step and animate it"""
-    mol = init_molecule()
+    mol = init_molecule((0.2, 0.2), (0.8, 0.8), 1, 2, 1, 0.5)
 
     # Animation stuff
     fig, ax = plt.subplots()
